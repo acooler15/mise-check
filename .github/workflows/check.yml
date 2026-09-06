@@ -12,7 +12,9 @@ jobs:
       - name: cargo check (all targets, msvc)
         run: cargo check --all-targets
       - name: cargo build (release, for manual testing)
-        run: cargo build --release
+        run: |
+          cargo build --release -p mise
+          cargo build --release -p mise-shim
       - uses: actions/upload-artifact@v4
         with:
           name: mise-windows-x64-fix
