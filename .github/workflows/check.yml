@@ -16,4 +16,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: mise-windows-x64-fix
-          path: target/release/mise.exe
+          path: |
+            target/release/mise.exe
+            target/release/mise-shim.exe
