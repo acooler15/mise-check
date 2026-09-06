@@ -11,3 +11,9 @@ jobs:
       - uses: Swatinem/rust-cache@v2
       - name: cargo check (all targets, msvc)
         run: cargo check --all-targets
+      - name: cargo build (release, for manual testing)
+        run: cargo build --release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mise-windows-x64-fix
+          path: target/release/mise.exe
