@@ -1,0 +1,13 @@
+name: check
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  windows-msvc-check:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: cargo check (all targets, msvc)
+        run: cargo check --all-targets
